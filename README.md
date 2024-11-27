@@ -1,4 +1,4 @@
-Bank Management App - Backend API
+# Bank Management App
 
 Welcome to the Bank Management App Backend API repository! This backend is built with ASP.NET Core 8, Entity Framework, JWT Authentication, and uses MS SQL Server for data storage. The API exposes several endpoints to handle banking functionalities like user authentication, account management, transactions, loan management, and admin operations.
 
