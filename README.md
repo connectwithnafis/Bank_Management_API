@@ -1,56 +1,140 @@
-# Bank Management App
+Bank Management App - Backend API
 
-Welcome to the **Bank Management App** repository! This project is a full-stack banking simulation system that allows customers, bank employees, and admins to manage accounts, perform transactions, apply for loans, and view reports. It includes both a backend API and a frontend interface to handle various banking operations securely.
+Welcome to the Bank Management App Backend API repository! This backend is built with ASP.NET Core 8, Entity Framework, JWT Authentication, and uses MS SQL Server for data storage. The API exposes several endpoints to handle banking functionalities like user authentication, account management, transactions, loan management, and admin operations.
 
-## Key Features
+Features
 
-### 1. **User Authentication and Authorization**
-- **Roles**: Customers, bank employees, and administrators.
-- **JWT Authentication**: Secure API access using JWT tokens for user authentication and authorization.
+1. User Authentication and Authorization
 
-### 2. **Account Management**
-- **Account Types**: Support for checking, savings, and loan accounts.
-- **CRUD Operations**: Create, read, update, and delete accounts.
-- **Account Details**: View balance, account history, and customer information.
+JWT Authentication: Secure API access using JWT tokens for user authentication and authorization.
 
-### 3. **Transactions and Fund Transfers**
-- **Deposit and Withdrawals**: Enable customers to deposit and withdraw funds.
-- **Fund Transfers**: Perform internal and external fund transfers between different banks.
-- **Transaction Limits and Fees**: Set daily transaction limits and apply fees for specific account types.
-- **Transaction History**: Store and retrieve transaction history for each account.
+Role-based Access Control: Different roles such as customer, bank employee, and administrator with access restrictions based on roles.
 
-### 4. **Loan Management**
-- **Loan Application**: Customers can apply for loans with fields for loan type, amount, and term.
-- **Loan Approval Workflow**: Admins or managers can review, approve, or reject loan applications.
 
-### 5. **Admin Dashboard**
-- **User and Account Management**: Admins can manage user accounts, reset passwords, and control account status.
+2. Account Management
 
-## Tech Stack
+CRUD operations for managing accounts, including:
 
-- **Frontend**: 
-  - React
-  - React Router
-  - Axios (for making API requests)
+Checking, savings, and loan accounts.
 
-## Installation
+Viewing account details (balance, history, etc.).
 
-### 1. **Clone the repository**
 
-```bash
-git clone https://github.com/connectwithnafis/Bank_Management_App.git
-cd Bank_Management_App
-```
-- Install dependencies:
+3. Transactions and Fund Transfers
 
-```bash
-npm install
-```
+Perform operations like:
 
-- Run the development server:
+Deposit, withdrawal, and internal/external fund transfers.
 
-```bash
-npm start
-```
+Transaction limits and fees for account types.
 
-This will start the React frontend at `http://localhost:3000`.
+View transaction history for each account.
+
+
+
+4. Loan Management
+
+Application for loans, with fields such as loan type, amount, and term.
+
+Loan approval workflow for admin review.
+
+
+5. Admin Dashboard
+
+Admin can manage users, reset passwords, and control account status.
+
+
+Tech Stack
+
+Backend Framework: ASP.NET Core 8
+
+Database: MS SQL Server
+
+ORM: Entity Framework Core
+
+Authentication: JWT (JSON Web Tokens)
+
+Libraries/Tools:
+
+Microsoft.AspNetCore.Authentication.JwtBearer
+
+Microsoft.EntityFrameworkCore
+
+Swashbuckle.AspNetCore (for API documentation)
+
+Installation
+
+1. Clone the Repository
+
+git clone https://github.com/your-username/Bank_Management_App_Backend.git
+cd Bank_Management_App_Backend
+
+2. Set Up the Database
+
+1. Install and set up MS SQL Server.
+
+
+2. Create a database named BankManagementApp (or use an existing one).
+
+
+3. Update the connection string in appsettings.json:
+
+
+
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=BankManagementApp;User Id=your-username;Password=your-password;"
+}
+
+3. Install Dependencies
+
+Run the following command to install the required NuGet packages:
+
+dotnet restore
+
+4. Migrate the Database
+
+Run the migrations to create the necessary tables in the database:
+
+dotnet ef database update
+
+5. Run the Application
+
+To start the backend API, use the following command:
+
+dotnet run
+
+API Documentation : Run Swagger
+
+Authentication (JWT)
+
+After logging in, the API will return a JWT token that must be included in the header of all subsequent requests.
+
+Example header for requests:
+
+
+Authorization: Bearer <your-jwt-token>
+
+Running Tests
+
+To run unit tests, use the following command:
+
+dotnet test
+
+Logging
+
+The backend uses Serilog for logging.
+
+Logs are stored in the console output and can be configured to log to files or other storage systems.
+
+
+Environment Variables
+
+Make sure to set the following environment variables in the appsettings.json or through your environment configuration:
+
+JWT_SECRET: The secret key used to sign JWT tokens.
+
+ConnectionStrings.DefaultConnection: The connection string to your MS SQL Server database.
+
+
+For any questions or issues, feel free to open an issue or submit a pull request.
+
