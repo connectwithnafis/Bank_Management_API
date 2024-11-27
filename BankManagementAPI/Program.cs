@@ -12,23 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BankDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-/*// JWT Authentication Configuration
-var key = builder.Configuration["Jwt:Key"];
-builder.Services.AddAuthentication(options =>
-{
-	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-	options.TokenValidationParameters = new TokenValidationParameters
-	{
-		ValidateIssuerSigningKey = true,
-		IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
-		ValidateIssuer = false,
-		ValidateAudience = false
-	};
-});*/
-
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
